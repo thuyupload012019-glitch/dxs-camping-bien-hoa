@@ -644,7 +644,14 @@
       });
     });
 
-    const FORM_ENDPOINT = "";
+    const FORM_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLSemXX2BKN7ptfd_0exkDhu2WE6Fn60j5LQUyyFykRfpcUfq5A/formResponse";
+    const PLAN_VALUES = {
+      'Camping Bửu Long': 'Camping Bửu Long',
+      'Food tour ven sông': 'Food tour Biên Hòa – ăn uống bờ sông',
+      'Mada Lakeview – Trị An': 'Camping Trị An / Mã Đà',
+      'Suối Mơ / Thác Mơ': 'Thác Mơ / Suối Mơ',
+      'Đảo Ó – Đồng Trường': 'Camping Đảo Ó – Đồng Trường'
+    };
     const joinForm = document.getElementById('joinForm');
     const formStatus = document.getElementById('formStatus');
     joinForm.addEventListener('submit', async (event) => {
@@ -661,13 +668,24 @@
       formStatus.className = 'form-status';
       formStatus.textContent = '';
       const payload = Object.fromEntries(new FormData(joinForm).entries());
-      payload.source = location.href;
+      const googlePayload = new URLSearchParams({
+        'entry.2108941633': payload.fullName || '',
+        'entry.606999298': payload.phone || '',
+        'entry.1458507213': payload.department || '',
+        'entry.1109008250': PLAN_VALUES[payload.plan] || payload.plan || '',
+        'entry.529183527': payload.motorbike || '',
+        'entry.1468715281': payload.pickup || '',
+        'entry.1843260158': payload.diet || '',
+        'entry.831505309': payload.emergency || '',
+        'entry.1046495914': payload.note || '',
+        'pageHistory': '0'
+      });
       try {
         await fetch(FORM_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: googlePayload.toString()
         });
         joinForm.reset();
         formStatus.className = 'form-status success';
