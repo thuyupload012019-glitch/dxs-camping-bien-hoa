@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kế hoạch đi chơi 20 người từ Biên Hòa: camping Bửu Long, Trị An, Suối Mơ, Đảo Ó và food tour ven sông.">
+  <title>Kế hoạch đi chơi Biên Hòa & Đồng Nai · 20 người</title>
+  <style>
+    :root {
+      --ink: #11231f;
+      --muted: #5f6f69;
+      --paper: #f4f1e8;
+      --card: #fffdf8;
+      --green: #174f43;
+      --green-2: #267461;
+      --orange: #e7642c;
+      --gold: #f0b44b;
+      --line: rgba(17,35,31,.14);
+      --shadow: 0 20px 60px rgba(23,79,67,.12);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(240,180,75,.14), transparent 30rem),
+        linear-gradient(180deg, #f8f5ed 0%, var(--paper) 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(244,241,232,.91);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .topbar-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 900; letter-spacing: -.04em; font-size: 1.05rem; }
+    .brand span { color: var(--orange); }
+    .nav { display: flex; gap: 18px; align-items: center; font-size: .9rem; font-weight: 700; }
+    .nav a { text-decoration: none; color: var(--muted); }
+    .nav a:hover { color: var(--green); }
+    .nav .join-link { padding: 8px 13px; border-radius: 999px; background: var(--orange); color: white; }
+    .nav .join-link:hover { color: white; filter: brightness(1.06); }
+    .hero {
+      min-height: 680px;
+      display: grid; align-items: end;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(8,34,29,.92) 0%, rgba(8,34,29,.56) 56%, rgba(8,34,29,.18) 100%),
+        url("cu-lao-pho.jpg") center/cover;
+    }
+    .hero-content { padding: 100px 0 64px; max-width: 790px; }
+    .eyebrow { margin: 0 0 16px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; color: #ffd991; font-size: .78rem; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(3.1rem, 8vw, 6.8rem); line-height: .91; letter-spacing: -.07em; }
+    .hero p { max-width: 690px; margin: 26px 0 0; font-size: clamp(1.05rem, 2vw, 1.34rem); color: rgba(255,255,255,.86); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .pill { padding: 9px 13px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(255,255,255,.1); font-size: .87rem; font-weight: 800; }
+    .photo-credit { margin-top: 26px; font-size: .74rem; color: rgba(255,255,255,.68); }
+    .photo-credit a { text-underline-offset: 3px; }
+    section { padding: 82px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+    .section-head h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.055em; }
+    .section-head p { margin: 0; max-width: 600px; color: var(--muted); }
+    .notice {
+      display: grid; grid-template-columns: auto 1fr; gap: 15px;
+      background: #fff4d9; border: 1px solid #efcc75; border-radius: 18px; padding: 18px 20px; margin-bottom: 30px;
+    }
+    .notice b { color: #8d4f00; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 34px; }
+    .filter {
+      appearance: none; border: 1px solid var(--line); background: var(--card); color: var(--ink);
+      border-radius: 999px; padding: 10px 16px; cursor: pointer; font-weight: 800;
+    }
+    .filter.active, .filter:hover { color: white; background: var(--green); border-color: var(--green); }
+    .comparison { overflow-x: auto; border-radius: 20px; box-shadow: var(--shadow); background: var(--card); }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td { padding: 15px 17px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--green); color: white; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #faf6eb; }
+    .money { font-weight: 900; color: var(--green); white-space: nowrap; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+    .plan-card {
+      overflow: hidden; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .plan-card:hover { transform: translateY(-5px); box-shadow: 0 24px 75px rgba(23,79,67,.18); }
+    .plan-card.hidden { display: none; }
+    .plan-card.featured { grid-column: 1 / -1; }
+    .image-box { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #dfe9e4; }
+    .image-box img { height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .plan-card:hover .image-box img { transform: scale(1.025); }
+    .image-box::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(8,34,29,.72)); pointer-events: none; }
+    .rank { position: absolute; top: 16px; left: 16px; z-index: 2; padding: 7px 11px; border-radius: 999px; background: var(--orange); color: white; font-weight: 900; font-size: .78rem; }
+    .img-source { position: absolute; z-index: 2; right: 14px; bottom: 12px; color: rgba(255,255,255,.88); font-size: .68rem; }
+    .card-body { padding: 25px; }
+    .kicker { margin: 0 0 8px; color: var(--orange); font-size: .77rem; text-transform: uppercase; letter-spacing: .13em; font-weight: 900; }
+    h3 { margin: 0 0 12px; font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.05; letter-spacing: -.04em; }
+    .desc { margin: 0 0 18px; color: var(--muted); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); margin: 20px 0; }
+    .fact { padding: 14px 10px 14px 0; }
+    .fact span { display: block; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; }
+    .fact strong { display: block; margin-top: 4px; font-size: 1rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .tag { color: var(--green); background: #e6f0eb; padding: 6px 9px; border-radius: 8px; font-size: .78rem; font-weight: 800; }
+    details { border-top: 1px solid var(--line); }
+    details:last-of-type { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; padding: 16px 0; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-weight: 900; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--orange); font-size: 1.4rem; }
+    details[open] summary::after { content: "−"; }
+    .detail-content { padding: 0 0 18px; color: var(--muted); }
+    .timeline { list-style: none; padding: 0; margin: 0; }
+    .timeline li { display: grid; grid-template-columns: 108px 1fr; gap: 14px; padding: 9px 0; border-bottom: 1px dashed var(--line); }
+    .timeline li:last-child { border: 0; }
+    .timeline time { color: var(--green); font-weight: 900; }
+    .mini-table { min-width: 0; font-size: .89rem; }
+    .mini-table th { background: #e6f0eb; color: var(--green); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 12px; padding: 10px 14px; text-decoration: none; font-weight: 900; border: 1px solid var(--green); }
+    .btn.primary { background: var(--green); color: white; }
+    .btn.secondary { color: var(--green); background: transparent; }
+    .btn:hover { filter: brightness(1.07); }
+    .food-gallery { display: grid; grid-template-columns: 1.08fr .92fr; gap: 18px; margin: 18px 0 24px; }
+    .food-gallery figure { margin: 0; overflow: hidden; border-radius: 16px; background: #eee; position: relative; }
+    .food-gallery img { aspect-ratio: 4/3; height: 100%; object-fit: cover; }
+    .food-gallery figcaption { position: absolute; inset: auto 0 0; padding: 24px 12px 10px; background: linear-gradient(transparent, rgba(0,0,0,.68)); color: white; font-size: .7rem; }
+    .ops-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .ops-card { border: 1px solid var(--line); background: var(--card); border-radius: 18px; padding: 20px; }
+    .ops-card h3 { font-size: 1.15rem; }
+    .ops-card ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+    .join-section { background: #e8efe9; }
+    .join-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: 28px; align-items: start; }
+    .join-intro { position: sticky; top: 94px; }
+    .join-intro h2 { margin: 0 0 18px; font-size: clamp(2.25rem, 5vw, 4.4rem); line-height: .93; letter-spacing: -.06em; }
+    .join-intro p { color: var(--muted); }
+    .join-checks { list-style: none; padding: 0; margin: 26px 0; }
+    .join-checks li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .join-checks li::before { content: "✓"; color: var(--orange); font-weight: 900; }
+    .join-form { border: 1px solid var(--line); background: var(--card); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+    .join-form h3 { font-size: 1.65rem; }
+    .join-form .form-note { margin: -3px 0 22px; color: var(--muted); font-size: .9rem; }
+    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { display: block; margin-bottom: 7px; font-size: .82rem; font-weight: 900; }
+    .field label span { color: var(--orange); }
+    .field input, .field select, .field textarea {
+      width: 100%; min-height: 46px; border: 1px solid #c7d3cf; border-radius: 11px;
+      padding: 11px 12px; background: white; color: var(--ink); font: inherit;
+    }
+    .field textarea { min-height: 96px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid rgba(231,100,44,.16); border-color: var(--orange); }
+    .consent { display: flex; gap: 10px; align-items: flex-start; margin: 20px 0; font-size: .86rem; color: var(--muted); }
+    .consent input { margin-top: 4px; }
+    .submit-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .submit-btn { appearance: none; border: 0; min-height: 48px; border-radius: 12px; padding: 11px 20px; background: var(--orange); color: white; font: inherit; font-weight: 900; cursor: pointer; }
+    .submit-btn:disabled { opacity: .58; cursor: wait; }
+    .form-status { min-height: 24px; font-size: .87rem; font-weight: 800; }
+    .form-status.success { color: #176b45; }
+    .form-status.error { color: #a33625; }
+    .sheet-link { color: var(--green); text-underline-offset: 3px; font-weight: 800; }
+    .join-float { position: fixed; right: 18px; bottom: 18px; z-index: 18; padding: 12px 16px; border-radius: 999px; background: var(--orange); color: white; text-decoration: none; font-weight: 900; box-shadow: 0 10px 28px rgba(145,58,20,.3); }
+    .refs { background: #0f352d; color: rgba(255,255,255,.86); }
+    .refs .section-head p, .refs .eyebrow { color: #c7dbd4; }
+    .refs h2 { color: white; }
+    .ref-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .ref-grid a { padding: 13px 14px; text-decoration: none; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.06); font-weight: 700; font-size: .88rem; }
+    .ref-grid a:hover { background: rgba(255,255,255,.12); }
+    footer { background: #09251f; color: rgba(255,255,255,.64); padding: 28px 0; font-size: .84rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 820px) {
+      .nav { display: none; }
+      .hero { min-height: 620px; }
+      .hero-content { width: 100%; padding: 72px 0 54px; }
+      h1 { font-size: clamp(2.75rem, 12vw, 4.4rem); line-height: .94; overflow-wrap: anywhere; }
+      .hero p { font-size: 1rem; }
+      .pill { max-width: 100%; overflow-wrap: anywhere; }
+      .section-head { align-items: start; flex-direction: column; }
+      .cards, .food-gallery, .ops-grid, .ref-grid, .join-layout { grid-template-columns: 1fr; }
+      .join-intro { position: static; }
+      .plan-card.featured { grid-column: auto; }
+      .plan-card, .card-body, .comparison { min-width: 0; max-width: 100%; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .timeline li { grid-template-columns: 88px 1fr; }
+      section { padding: 62px 0; }
+    }
+    @media (max-width: 480px) {
+      .wrap { width: calc(100% - 28px); }
+      .topbar-inner { min-height: 58px; }
+      .hero { min-height: 650px; }
+      h1 { font-size: 2.72rem; }
+      .hero-meta { gap: 8px; }
+      .pill { font-size: .78rem; padding: 8px 11px; }
+      .card-body { padding: 20px; }
+      .facts { grid-template-columns: 1fr; }
+      .fact { padding-right: 0; }
+      .timeline li { grid-template-columns: 72px minmax(0, 1fr); gap: 10px; }
+      .actions .btn { width: 100%; }
+      .join-form { padding: 20px; }
+      .field-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+    }
+    @media print {
+      .topbar, .filters, .actions { display: none !important; }
+      .hero { min-height: 370px; }
+      .plan-card { break-inside: avoid; box-shadow: none; }
+      details > * { display: block !important; }
+      summary::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">DXS <span>TRIP PLAN</span></div>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#compare">So sánh</a>
+        <a href="#plans">Phương án</a>
+        <a href="#operations">Tổ chức đoàn</a>
+        <a href="#references">Nguồn tham khảo</a>
+        <a class="join-link" href="#join">Tham gia</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-content">
+        <p class="eyebrow">Biên Hòa · Đồng Nai · cập nhật 14.08.2026</p>
+        <h1>5 cách đi chơi cho một ngày đáng nhớ.</h1>
+        <p>Kế hoạch dành cho khoảng 20 người, di chuyển bằng xe máy, khung giờ mục tiêu 08:00–19:00. Từ food tour ven sông đến camping giữa hồ Trị An.</p>
+        <div class="hero-meta">
+          <span class="pill">20 người · khoảng 10 xe</span>
+          <span class="pill">450.000–750.000đ/người</span>
+          <span class="pill">1 food tour · 4 camping</span>
+        </div>
+        <div class="photo-credit">Ảnh: Cù Lao Phố · <a href="https://dantri.com.vn/thoi-su/cu-lao-pho-hon-ngoc-xanh-giua-dong-dong-nai-20250531143747152.htm" target="_blank" rel="noreferrer">Dân Trí</a></div>
+      </div>
+    </section>
+
+    <section id="compare">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow" style="color:var(--orange)">Chọn nhanh</p><h2>Bảng so sánh</h2></div>
+          <p>Nếu ưu tiên gắn kết nội bộ và ít chạy xe, chọn Bửu Long. Nếu muốn cảnh quan và trải nghiệm mạnh, chọn Trị An hoặc Đảo Ó. Suối Mơ có hành trình xa nhất.</p>
+        </div>
+        <div class="notice">
+          <div aria-hidden="true">⚑</div>
+          <div><b>Phạm vi:</b> Bửu Long và food tour nằm trong khu vực gần trung tâm. Trị An, Đảo Ó và đặc biệt Suối Mơ vượt bán kính 10–15 km ban đầu; thời gian chạy xe được tính riêng.</div>
+        </div>
+        <div class="comparison">
+          <table>
+            <thead><tr><th>Phương án</th><th>Cự ly ước tính</th><th>Thời gian chạy/chiều</th><th>Ngân sách/người</th><th>Điểm mạnh</th><th>Khuyến nghị</th></tr></thead>
+            <tbody>
+              <tr><td><b>Camping Bửu Long</b></td><td>≈ 5 km</td><td>15–25 phút</td><td class="money">475–550K</td><td>Dễ tổ chức, nhiều thời gian chơi</td><td>Gắn kết nội bộ</td></tr>
+              <tr><td><b>Food tour ven sông</b></td><td>15–20 km cả ngày</td><td>Các chặng ngắn</td><td class="money">550–750K</td><td>Đặc sản, view sông, ít chuẩn bị</td><td>Trải nghiệm Biên Hòa</td></tr>
+              <tr><td><b>Mada Lakeview</b></td><td>≈ 30–35 km</td><td>60–80 phút</td><td class="money">410–750K</td><td>Hồ Trị An, SUP, hoàng hôn</td><td>Camping thiên nhiên</td></tr>
+              <tr><td><b>Suối Mơ / Thác Mơ</b></td><td>≈ 85–95 km</td><td>120–150 phút</td><td class="money">625–710K</td><td>Tắm thác, nước suối tự nhiên</td><td>Nên xuất phát sớm hơn</td></tr>
+              <tr><td><b>Đảo Ó – Đồng Trường</b></td><td>≈ 30–35 km + tàu</td><td>60–80 phút + 30–45 phút tàu</td><td class="money">520–735K</td><td>Đi tàu, đảo biệt lập</td><td>Ấn tượng nhất, hậu cần cao</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" style="padding-top:30px">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow" style="color:var(--orange)">Chi tiết</p><h2>Toàn bộ phương án</h2></div>
+          <p>Bấm vào lịch trình hoặc ngân sách để mở chi tiết. Các mức giá là dự toán cho 20 người và cần xác nhận lại khi đặt.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Lọc phương án">
+          <button class="filter active" data-filter="all">Tất cả</button>
+          <button class="filter" data-filter="near">Gần trung tâm</button>
+          <button class="filter" data-filter="camping">Camping</button>
+          <button class="filter" data-filter="food">Food tour</button>
+          <button class="filter" data-filter="water">Trải nghiệm nước</button>
+        </div>
+
+        <div class="cards">
+          <article class="plan-card" data-category="camping near water">
+            <div class="image-box">
+              <span class="rank">Thuận tiện nhất</span>
+              <img src="buu-long.jpg" alt="Hồ và núi đá tại Khu du lịch Bửu Long" loading="lazy">
+              <a class="img-source" href="https://bazantravel.com/khu-du-lich-buu-long/" target="_blank" rel="noreferrer">Ảnh: Bazan Travel</a>
+            </div>
+            <div class="card-body">
+              <p class="kicker">Phương án 01 · Camping gần</p>
+              <h3>Khu du lịch Bửu Long</h3>
+              <p class="desc">Picnic, BBQ và team building trong ngày. Khu du lịch đóng cửa lúc 17:00 nên 17:15–19:00 được nối bằng ăn nhẹ/cà phê tại trung tâm.</p>
+              <div class="facts">
+                <div class="fact"><span>Cự ly</span><strong>≈ 5 km</strong></div>
+                <div class="fact"><span>Giờ hoạt động</span><strong>07:00–17:00</strong></div>
+                <div class="fact"><span>Dự toán</span><strong>475–550K</strong></div>
+              </div>
+              <div class="tag-row"><span class="tag">BBQ</span><span class="tag">Team building</span><span class="tag">Ít chạy xe</span><span class="tag">Phù hợp 20 người</span></div>
+              <details>
+                <summary>Lịch trình 08:00–19:00</summary>
+                <div class="detail-content"><ul class="timeline">
+                  <li><time>08:00</time><span>Tập trung, điểm danh tại Quảng trường tỉnh Đồng Nai.</span></li>
+                  <li><time>08:15</time><span>Khởi hành đến Bửu Long; nhận khu picnic và dựng trại.</span></li>
+                  <li><time>09:15</time><span>Team building theo 4 đội, mỗi đội 5 người.</span></li>
+                  <li><time>10:45</time><span>Chuẩn bị BBQ; ăn trưa từ 11:30.</span></li>
+                  <li><time>13:00</time><span>Nghỉ trưa, board game, tham quan và chụp ảnh.</span></li>
+                  <li><time>16:15</time><span>Thu dọn; rời khu trước 17:00.</span></li>
+                  <li><time>17:15</time><span>Ăn nhẹ/cà phê tại Sân Ga Cafe & Dining; kết thúc 19:00.</span></li>
+                </ul></div>
+              </details>
+              <details>
+                <summary>Ngân sách đoàn 20 người</summary>
+                <div class="detail-content"><table class="mini-table"><tbody>
+                  <tr><td>Vé cổng</td><td class="money">2,0–3,0 triệu</td></tr>
+                  <tr><td>Lều, bạt, bếp</td><td class="money">0,8–1,0 triệu</td></tr>
+                  <tr><td>BBQ, nước, trái cây</td><td class="money">3,7–4,5 triệu</td></tr>
+                  <tr><td>Ăn nhẹ/cà phê, xăng, dự phòng</td><td class="money">3,0–3,5 triệu</td></tr>
+                  <tr><td><b>Tổng</b></td><td class="money">9,5–11 triệu</td></tr>
+                </tbody></table></div>
+              </details>
+              <div class="actions">
+                <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Khu+du+lich+Buu+Long+Dong+Nai" target="_blank" rel="noreferrer">Chỉ đường</a>
+                <a class="btn secondary" href="https://dulichbuulong.com.vn/2026/01/01/khu-du-lich-buu-long-bang-gia/" target="_blank" rel="noreferrer">Giá vé 2026</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card featured" data-category="food near water">
+            <div class="image-box">
+              <span class="rank">Đậm chất Biên Hòa</span>
+              <img src="cu-lao-pho.jpg" alt="Cù Lao Phố giữa sông Đồng Nai" loading="lazy">
+              <a class="img-source" href="https://dantri.com.vn/thoi-su/cu-lao-pho-hon-ngoc-xanh-giua-dong-dong-nai-20250531143747152.htm" target="_blank" rel="noreferrer">Ảnh: Dân Trí</a>
+            </div>
+            <div class="card-body">
+              <p class="kicker">Phương án 02 · Food tour ven sông</p>
+              <h3>Cù Lao Phố – Tân Mai – Hiệp Hòa</h3>
+              <p class="desc">Một tuyến vòng gọn, kết hợp đặc sản gỏi cá Tân Mai, không gian sông nước, di tích Cù Lao Phố và bữa tối sát sông.</p>
+              <div class="food-gallery">
+                <figure><img src="goi-ca.jpg" alt="Gỏi cá Tân Mai tại Biên Hòa" loading="lazy"><figcaption>Gỏi cá Tân Mai · ảnh Bách Hóa Xanh</figcaption></figure>
+                <figure><img src="song-que.jpg" alt="Không gian tiệc ven sông tại nhà hàng Sông Quê" loading="lazy"><figcaption>Không gian bờ sông · ảnh Hotel84</figcaption></figure>
+              </div>
+              <div class="facts">
+                <div class="fact"><span>Tổng cự ly</span><strong>15–20 km</strong></div>
+                <div class="fact"><span>Điểm chính</span><strong>5 điểm</strong></div>
+                <div class="fact"><span>Dự toán</span><strong>550–750K</strong></div>
+              </div>
+              <div class="tag-row"><span class="tag">View sông</span><span class="tag">Gỏi cá Tân Mai</span><span class="tag">Cù Lao Phố</span><span class="tag">Ít chuẩn bị</span></div>
+              <details open>
+                <summary>Lịch trình 08:00–19:00</summary>
+                <div class="detail-content"><ul class="timeline">
+                  <li><time>08:00</time><span>Ăn sáng và cà phê tại The An Coffee, 195 Đỗ Văn Thi.</span></li>
+                  <li><time>09:00</time><span>Tham quan Chùa Đại Giác hoặc Đền thờ Nguyễn Hữu Cảnh.</span></li>
+                  <li><time>10:15</time><span>Vườn Cổ Tích: uống nước, vườn hoa, hồ cá và khu bờ sông.</span></li>
+                  <li><time>11:30</time><span>Ăn trưa gỏi cá Kim Yến; đặt thêm cá chiên và món chín.</span></li>
+                  <li><time>14:30</time><span>Cồn Ốc Hiệp Hòa: gọi phần nhỏ theo kiểu tasting.</span></li>
+                  <li><time>16:00</time><span>Dạo và chụp ảnh Cù Lao Phố; nghỉ tự do.</span></li>
+                  <li><time>17:00</time><span>Ăn tối tại Sông Quê Garden, ưu tiên bàn sát sông; kết thúc 19:00.</span></li>
+                </ul></div>
+              </details>
+              <details>
+                <summary>Địa điểm bờ sông phù hợp đoàn 20 người</summary>
+                <div class="detail-content">
+                  <p><b>Sông Quê Garden:</b> 91/3 Đặng Văn Trơn, ba mặt sông, sức chứa lớn; 0902 955 554.</p>
+                  <p><b>Quán Bên Sông Cù Lao Phố:</b> Đỗ Văn Thi, có chỗ ngoài trời, bãi xe và câu cá.</p>
+                  <p><b>Gỏi cá Kim Yến:</b> 180 Huỳnh Văn Hớn; 0251 3812 967.</p>
+                  <p><b>An Viên Quán:</b> 101 Đặng Văn Trơn; phương án dự phòng khi mưa, hotline 0969 734 545.</p>
+                </div>
+              </details>
+              <div class="actions">
+                <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Song+Que+Garden+91%2F3+Dang+Van+Tron+Bien+Hoa" target="_blank" rel="noreferrer">Bản đồ tuyến ăn tối</a>
+                <a class="btn secondary" href="https://dongnai.haogiayensao.com/food/?q=song+que+garden+restaurant" target="_blank" rel="noreferrer">Sông Quê Garden</a>
+                <a class="btn secondary" href="https://www.foody.vn/dong-nai/quan-ben-song-cu-lao-pho-quan-an-gia-dinh" target="_blank" rel="noreferrer">Quán Bên Sông</a>
+                <a class="btn secondary" href="https://www.bachhoaxanh.com/kinh-nghiem-hay/ve-bien-hoa-thuong-thuc-goi-ca-tai-tuong-ngon-tru-danh-than-nien-hon-30-nam-1570090" target="_blank" rel="noreferrer">Nguồn ảnh gỏi cá</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card" data-category="camping water">
+            <div class="image-box">
+              <span class="rank">Camping cân bằng nhất</span>
+              <img src="mada-tri-an.jpg" alt="Lều cắm trại ven hồ tại Mada Lakeview Trị An" loading="lazy">
+              <a class="img-source" href="https://weex.vn/mada-lakeview-camping-cat.724804581.htm" target="_blank" rel="noreferrer">Ảnh: WeEx</a>
+            </div>
+            <div class="card-body">
+              <p class="kicker">Phương án 03 · Camping hồ</p>
+              <h3>Mada Lakeview – Trị An</h3>
+              <p class="desc">Không gian ven hồ, lều dựng sẵn, BBQ và SUP. Chọn chi nhánh 1 tại Hiếu Liêm để giảm quãng đường từ Biên Hòa.</p>
+              <div class="facts">
+                <div class="fact"><span>Cự ly</span><strong>30–35 km</strong></div>
+                <div class="fact"><span>Chạy xe</span><strong>60–80 phút</strong></div>
+                <div class="fact"><span>Dự toán</span><strong>410–750K</strong></div>
+              </div>
+              <div class="tag-row"><span class="tag">SUP</span><span class="tag">Lều tiện nghi</span><span class="tag">BBQ ven hồ</span><span class="tag">Team building</span></div>
+              <details>
+                <summary>Lịch trình 08:00–19:00</summary>
+                <div class="detail-content"><ul class="timeline">
+                  <li><time>08:00</time><span>Tập trung; khởi hành 08:15.</span></li>
+                  <li><time>09:30</time><span>Đến trại, nhận lều và khu BBQ.</span></li>
+                  <li><time>10:00</time><span>Team building; chuẩn bị và ăn BBQ từ 11:15.</span></li>
+                  <li><time>13:30</time><span>Nghỉ trưa; SUP/kayak luân phiên từ 14:15.</span></li>
+                  <li><time>16:20</time><span>Thu dọn, ảnh nhóm; rời trại 17:00.</span></li>
+                  <li><time>18:30</time><span>Về trung tâm; tổng kết đến 19:00.</span></li>
+                </ul></div>
+              </details>
+              <details>
+                <summary>Hai mức ngân sách</summary>
+                <div class="detail-content"><p><b>Tiết kiệm:</b> 410–465K/người, tự chuẩn bị phần lớn thiết bị. <b>Tiện nghi:</b> 680–750K/người, dùng combo cơ bản, BBQ và hoạt động nước.</p></div>
+              </details>
+              <div class="actions">
+                <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Mada+Lakeview+Camping+Dong+Nai" target="_blank" rel="noreferrer">Chỉ đường</a>
+                <a class="btn secondary" href="https://camtraihotrian.com/" target="_blank" rel="noreferrer">Website khu trại</a>
+                <a class="btn secondary" href="https://camtraihotrian.com/combo1.html" target="_blank" rel="noreferrer">Tiện ích combo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card" data-category="camping water">
+            <div class="image-box">
+              <span class="rank">Tắm thác đẹp nhất</span>
+              <img src="suoi-mo.jpg" alt="Thác và hồ bơi tự nhiên tại Công viên Suối Mơ" loading="lazy">
+              <a class="img-source" href="https://vietgoing.com/destination/498-khu-du-lich-suoi-mo-binh-chau.html" target="_blank" rel="noreferrer">Ảnh: Vietgoing</a>
+            </div>
+            <div class="card-body">
+              <p class="kicker">Phương án 04 · Camping xa</p>
+              <h3>Suối Mơ / Thác Mơ</h3>
+              <p class="desc">Tắm hồ thiên nhiên, thác nước, SUP và picnic. Quãng đường dài khiến lịch 08:00–19:00 khá sát; khởi hành 06:00 sẽ hợp lý hơn.</p>
+              <div class="facts">
+                <div class="fact"><span>Cự ly</span><strong>85–95 km</strong></div>
+                <div class="fact"><span>Giờ mở cửa</span><strong>07:30–17:00</strong></div>
+                <div class="fact"><span>Dự toán</span><strong>625–710K</strong></div>
+              </div>
+              <div class="tag-row"><span class="tag">Tắm thác</span><span class="tag">Hồ tự nhiên</span><span class="tag">SUP</span><span class="tag">Đường dài</span></div>
+              <details>
+                <summary>Lịch trình giữ đúng 08:00–19:00</summary>
+                <div class="detail-content"><ul class="timeline">
+                  <li><time>08:00</time><span>Khởi hành; nghỉ 15 phút tại Dầu Giây.</span></li>
+                  <li><time>10:30</time><span>Đến Suối Mơ, nhận khu picnic và dựng lều.</span></li>
+                  <li><time>11:00</time><span>Tắm hồ, chụp ảnh thác; BBQ từ 12:00.</span></li>
+                  <li><time>14:00</time><span>SUP, nhà phao hoặc team building.</span></li>
+                  <li><time>15:15</time><span>Tắm lại, thay đồ và thu dọn.</span></li>
+                  <li><time>16:10</time><span>Rời công viên; dự kiến về Biên Hòa 18:50.</span></li>
+                </ul></div>
+              </details>
+              <details>
+                <summary>Giá niêm yết 2026</summary>
+                <div class="detail-content"><p>Vé người lớn 130K; lều chữ A 180K; bạt 80K; bếp nhỏ kèm 2 kg than 150K; SUP 120K/60 phút; chòi 500K. Giá lễ/Tết cao hơn.</p></div>
+              </details>
+              <div class="actions">
+                <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Cong+vien+Suoi+Mo+Dong+Nai" target="_blank" rel="noreferrer">Chỉ đường</a>
+                <a class="btn secondary" href="https://suoimopark.com/uploads/BANG%20GIA/2026.pdf" target="_blank" rel="noreferrer">Bảng giá PDF 2026</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card featured" data-category="camping water">
+            <div class="image-box">
+              <span class="rank">Trải nghiệm ấn tượng nhất</span>
+              <img src="dao-o.png" alt="Đảo Ó và Đồng Trường giữa hồ Trị An" loading="lazy">
+              <a class="img-source" href="https://ats.vietnamtourism.gov.vn/den-dao-o-dong-nai-trai-nghiem-tan-huong-khong-gian-binh-yen-giua-mau-xanh/" target="_blank" rel="noreferrer">Ảnh: Vietnam Tourism</a>
+            </div>
+            <div class="card-body">
+              <p class="kicker">Phương án 05 · Camping trên đảo</p>
+              <h3>Đảo Ó – Đồng Trường</h3>
+              <p class="desc">Xe máy gửi tại bến Đồng Trường, sau đó đi tàu/canô ra đảo. Phương án có cảnh quan và cảm giác khám phá tốt nhất, nhưng cần khóa giờ tàu về từ trước.</p>
+              <div class="facts">
+                <div class="fact"><span>Cự ly</span><strong>30–35 km + tàu</strong></div>
+                <div class="fact"><span>Đi tàu</span><strong>30–45 phút</strong></div>
+                <div class="fact"><span>Dự toán</span><strong>520–735K</strong></div>
+              </div>
+              <div class="tag-row"><span class="tag">Đi tàu</span><span class="tag">Camping đảo</span><span class="tag">Cá hồ Trị An</span><span class="tag">Cần đặt trước</span></div>
+              <details open>
+                <summary>Lịch trình 08:00–19:00</summary>
+                <div class="detail-content"><ul class="timeline">
+                  <li><time>08:00</time><span>Tập trung; khởi hành 08:15 đến bến Đồng Trường.</span></li>
+                  <li><time>09:20</time><span>Gửi xe, nhận vé và chuyển đồ xuống tàu.</span></li>
+                  <li><time>09:40</time><span>Tàu ra đảo; dựng trại khoảng 10:20.</span></li>
+                  <li><time>10:50</time><span>Team building; BBQ hoặc cơm nhà hàng từ 12:00.</span></li>
+                  <li><time>14:15</time><span>Đi bộ quanh đảo, xe đạp đôi hoặc hoạt động nước.</span></li>
+                  <li><time>15:50</time><span>Thu dọn; tàu về bến lúc 16:15.</span></li>
+                  <li><time>17:00</time><span>Nhận xe; về Biên Hòa và kết thúc trước 19:00.</span></li>
+                </ul></div>
+              </details>
+              <details>
+                <summary>Chi phí cần khóa giá</summary>
+                <div class="detail-content"><p>Giá tàu trực tuyến đang có chênh lệch giữa vé ghép và thuê chuyến. Dự toán đoàn: tàu 1,5–3 triệu; lều/bạt 1–1,5 triệu; BBQ 3,6–4 triệu; hoạt động 1,5–2,5 triệu; xăng, gửi xe và dự phòng 2,8–3,3 triệu.</p></div>
+              </details>
+              <div class="actions">
+                <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Ben+tau+Dao+O+Dong+Truong+Tri+An" target="_blank" rel="noreferrer">Chỉ đường đến bến</a>
+                <a class="btn secondary" href="https://ctitravel.vn/" target="_blank" rel="noreferrer">Website KDL</a>
+                <a class="btn secondary" href="https://ctitravel.vn/nha-hang" target="_blank" rel="noreferrer">Nhà hàng trên đảo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="operations">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow" style="color:var(--orange)">Vận hành</p><h2>Tổ chức đoàn 20 người</h2></div>
+          <p>Một cấu trúc đơn giản giúp đoàn xe máy đi đều, quản lý chi phí rõ và không bỏ sót người.</p>
+        </div>
+        <div class="ops-grid">
+          <div class="ops-card"><h3>Đội hình di chuyển</h3><ul><li>10 xe chia 2 tốp, mỗi tốp 5 xe.</li><li>Mỗi tốp có một xe dẫn và một xe chốt.</li><li>Không vượt xe dẫn; chia sẻ vị trí trực tiếp.</li></ul></div>
+          <div class="ops-card"><h3>Phân công</h3><ul><li>1 trưởng đoàn và 1 thủ quỹ.</li><li>2 trưởng tốp và 2 xe chốt.</li><li>1 người y tế, 1 người hình ảnh.</li></ul></div>
+          <div class="ops-card"><h3>An toàn</h3><ul><li>Kiểm tra phanh, lốp, đèn và xăng.</li><li>Áo mưa, túi chống nước, chống côn trùng.</li><li>Áo phao bắt buộc khi chơi dưới nước.</li><li>Không dùng bia rượu khi còn lái xe.</li></ul></div>
+          <div class="ops-card"><h3>D−7 ngày</h3><ul><li>Chốt phương án, danh sách và khẩu vị.</li><li>Đặt bàn/lều/tàu bằng văn bản.</li><li>Thu trước 80% ngân sách.</li></ul></div>
+          <div class="ops-card"><h3>D−2 ngày</h3><ul><li>Kiểm tra dự báo thời tiết.</li><li>Xác nhận giờ nhận/trả và chính sách mưa.</li><li>Gửi bản đồ, số điện thoại khẩn cấp.</li></ul></div>
+          <div class="ops-card"><h3>Ngày đi</h3><ul><li>Điểm danh trước mỗi chặng.</li><li>Giữ hóa đơn và ghi chi phí ngay.</li><li>Kiểm tra rác, thiết bị trước khi rời điểm.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="join-section">
+      <div class="wrap join-layout">
+        <div class="join-intro">
+          <p class="eyebrow" style="color:var(--orange)">Đăng ký cùng đoàn</p>
+          <h2>Sẵn sàng đi thì giữ chỗ.</h2>
+          <p>Điền thông tin trong khoảng một phút. Ban tổ chức dùng dữ liệu để chốt phương án, ghép xe và chuẩn bị suất ăn cho khoảng 20 người.</p>
+          <ul class="join-checks">
+            <li>Tự tổng hợp vào Google Sheets của ban tổ chức</li>
+            <li>Không công khai số điện thoại hoặc liên hệ khẩn cấp</li>
+            <li>Có thể thay đổi lựa chọn trước ngày chốt đoàn</li>
+          </ul>
+          <a class="sheet-link" href="https://docs.google.com/spreadsheets/d/1ChqPWKBO29R7eZRlcTzbwLQelmLB1ZJOjv3KPJ3krbY/edit" target="_blank" rel="noreferrer">Mở bảng tổng hợp dành cho ban tổ chức →</a>
+        </div>
+
+        <form class="join-form" id="joinForm">
+          <h3>Thông tin tham gia</h3>
+          <p class="form-note">Các mục có dấu <b style="color:var(--orange)">*</b> là bắt buộc.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="fullName">Họ và tên <span>*</span></label>
+              <input id="fullName" name="fullName" autocomplete="name" maxlength="80" required>
+            </div>
+            <div class="field">
+              <label for="phone">Số điện thoại / Zalo <span>*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+ .()-]{8,18}" maxlength="18" required>
+            </div>
+            <div class="field">
+              <label for="department">Phòng ban / Nhóm</label>
+              <input id="department" name="department" maxlength="80" placeholder="Ví dụ: Kinh doanh, Vận hành…">
+            </div>
+            <div class="field">
+              <label for="plan">Phương án ưu tiên <span>*</span></label>
+              <select id="plan" name="plan" required>
+                <option value="">Chọn một phương án</option>
+                <option>Camping Bửu Long</option>
+                <option>Food tour ven sông</option>
+                <option>Mada Lakeview – Trị An</option>
+                <option>Suối Mơ / Thác Mơ</option>
+                <option>Đảo Ó – Đồng Trường</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="motorbike">Sắp xếp xe máy <span>*</span></label>
+              <select id="motorbike" name="motorbike" required>
+                <option value="">Chọn cách di chuyển</option>
+                <option>Tự lái – có thể chở 1 người</option>
+                <option>Tự lái – không chở thêm</option>
+                <option>Cần ghép xe</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pickup">Điểm đón dự kiến</label>
+              <input id="pickup" name="pickup" maxlength="100" placeholder="Khu vực hoặc địa chỉ ngắn">
+            </div>
+            <div class="field">
+              <label for="diet">Yêu cầu ăn uống</label>
+              <input id="diet" name="diet" maxlength="120" placeholder="Ăn chay, dị ứng, không ăn cay…">
+            </div>
+            <div class="field full">
+              <label for="emergency">Liên hệ khẩn cấp</label>
+              <input id="emergency" name="emergency" maxlength="120" placeholder="Tên và số điện thoại người thân">
+            </div>
+            <div class="field full">
+              <label for="note">Ghi chú</label>
+              <textarea id="note" name="note" maxlength="500" placeholder="Thông tin khác ban tổ chức cần biết"></textarea>
+            </div>
+          </div>
+          <label class="consent"><input type="checkbox" name="consent" required><span>Tôi đồng ý để ban tổ chức sử dụng thông tin trên cho việc liên hệ, ghép xe và chuẩn bị chuyến đi.</span></label>
+          <div class="submit-row">
+            <button class="submit-btn" type="submit">Gửi đăng ký</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="references" class="refs">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Nguồn mở</p><h2>Link tham khảo</h2></div>
+          <p>Giá và giờ hoạt động có thể thay đổi. Ưu tiên nguồn chính thức; gọi lại trước ngày đi 2–3 ngày.</p>
+        </div>
+        <div class="ref-grid">
+          <a href="https://dulichbuulong.com.vn/2026/01/01/khu-du-lich-buu-long-bang-gia/" target="_blank" rel="noreferrer">Bửu Long · bảng giá & giờ mở cửa 2026</a>
+          <a href="https://dulichbuulong.com.vn/2026/05/30/he-soi-dong-uu-dai-lon-tai-kdl-buu-long/" target="_blank" rel="noreferrer">Bửu Long · ưu đãi hè 2026</a>
+          <a href="https://camtraihotrian.com/" target="_blank" rel="noreferrer">Mada Lakeview · website chính</a>
+          <a href="https://camtraihotrian.com/combo1.html" target="_blank" rel="noreferrer">Mada Lakeview · tiện ích combo</a>
+          <a href="https://suoimopark.com/uploads/BANG%20GIA/2026.pdf" target="_blank" rel="noreferrer">Suối Mơ · bảng giá PDF 2026</a>
+          <a href="https://ctitravel.vn/" target="_blank" rel="noreferrer">Đảo Ó – Đồng Trường · website KDL</a>
+          <a href="https://www.vietourist.com.vn/vn/tour/du-lich-dong-nai/" target="_blank" rel="noreferrer">Đảo Ó · giá dịch vụ tham khảo 2026</a>
+          <a href="https://dongnai.haogiayensao.com/food/?q=song+que+garden+restaurant" target="_blank" rel="noreferrer">Sông Quê Garden · địa chỉ & liên hệ</a>
+          <a href="https://www.foody.vn/dong-nai/quan-ben-song-cu-lao-pho-quan-an-gia-dinh" target="_blank" rel="noreferrer">Quán Bên Sông Cù Lao Phố</a>
+          <a href="https://www.anvienquan.com/" target="_blank" rel="noreferrer">An Viên Quán · website chính</a>
+          <a href="https://dongnai360.com/post/goi-ca-tan-mai" target="_blank" rel="noreferrer">Gỏi cá Tân Mai · địa chỉ tham khảo</a>
+          <a href="https://ttxtdldongnai.vn/chua-dai-giac-dong-nai/" target="_blank" rel="noreferrer">Chùa Đại Giác · thông tin điểm đến</a>
+          <a href="https://www.foody.vn/dong-nai/the-an-coffee-do-van-thi" target="_blank" rel="noreferrer">The An Coffee · giờ & giá tham khảo</a>
+          <a href="https://ansapbienhoa.com/dia-diem/con-oc-hiep-hoa/" target="_blank" rel="noreferrer">Cồn Ốc Hiệp Hòa</a>
+          <a href="https://www.lemon8-app.com/%40bienhoatattantat/7574013093299192328?region=vn" target="_blank" rel="noreferrer">Vườn Cổ Tích · hình ảnh & trải nghiệm</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Kế hoạch tham khảo · Nhóm khoảng 20 người · Xe máy</span>
+      <span>Dữ liệu rà soát ngày 14/08/2026 · Giá cần xác nhận lại khi đặt</span>
+    </div>
+  </footer>
+
+  <a class="join-float" href="#join" aria-label="Đi đến biểu mẫu đăng ký">Tham gia</a>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.plan-card');
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        filters.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        const selected = button.dataset.filter;
+        cards.forEach(card => {
+          const visible = selected === 'all' || card.dataset.category.split(' ').includes(selected);
+          card.classList.toggle('hidden', !visible);
+        });
+      });
+    });
+
+    const FORM_ENDPOINT = "";
+    const joinForm = document.getElementById('joinForm');
+    const formStatus = document.getElementById('formStatus');
+    joinForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!joinForm.reportValidity()) return;
+      if (!FORM_ENDPOINT) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Cổng nhận đăng ký đang chờ quản trị viên kết nối lần đầu.';
+        return;
+      }
+      const button = joinForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      button.textContent = 'Đang gửi…';
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+      const payload = Object.fromEntries(new FormData(joinForm).entries());
+      payload.source = location.href;
+      try {
+        await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        joinForm.reset();
+        formStatus.className = 'form-status success';
+        formStatus.textContent = 'Đã nhận đăng ký. Hẹn gặp bạn trong chuyến đi!';
+      } catch (error) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Chưa gửi được. Vui lòng kiểm tra kết nối và thử lại.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Gửi đăng ký';
+      }
+    });
+  </script>
+</body>
+</html>
